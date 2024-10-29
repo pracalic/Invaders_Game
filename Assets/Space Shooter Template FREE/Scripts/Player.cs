@@ -6,17 +6,17 @@ using UnityEngine;
 /// This script defines which sprite the 'Player" uses and its health.
 /// </summary>
 
-public class Player : MonoBehaviour
+public class Player : Singleton<Player>
 {
     public GameObject destructionFX;
 
-    public static Player instance; 
+    //public static Player instance; 
 
-    private void Awake()
-    {
-        if (instance == null) 
-            instance = this;
-    }
+    //private void Awake()
+    //{
+    //    if (instance == null) 
+    //        instance = this;
+    //}
 
     //method for damage proceccing by 'Player'
     public void GetDamage(int damage)   

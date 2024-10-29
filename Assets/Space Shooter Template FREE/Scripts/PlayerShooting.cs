@@ -31,6 +31,8 @@ public class PlayerShooting : MonoBehaviour {
     bool shootingIsActive = true; 
     [HideInInspector] public int maxweaponPower = 4; 
     public static PlayerShooting instance;
+    [SerializeField]
+    float projectileRotation = 90f;
 
     private void Awake()
     {
@@ -63,7 +65,7 @@ public class PlayerShooting : MonoBehaviour {
         switch (weaponPower) // according to weapon power 'pooling' the defined anount of projectiles, on the defined position, in the defined rotation
         {
             case 1:
-                CreateLazerShot(projectileObject, guns.centralGun.transform.position, Vector3.zero);
+                CreateLazerShot(projectileObject, guns.centralGun.transform.position, new Vector3(0,0, projectileRotation));
                 guns.centralGunVFX.Play();
                 break;
             case 2:
