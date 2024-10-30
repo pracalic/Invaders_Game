@@ -19,7 +19,9 @@ public class PlayerMoving : MonoBehaviour {
     [Tooltip("offset from viewport borders for player's movement")]
     public Borders borders;
     Camera mainCamera;
-    bool controlIsActive = true; 
+    bool controlIsActive = true;
+    [SerializeField]
+    bool wsadContorl = false;
 
     public static PlayerMoving instance; //unique instance of the script for easy access to the script
 
@@ -41,6 +43,14 @@ public class PlayerMoving : MonoBehaviour {
         {
 #if UNITY_STANDALONE || UNITY_EDITOR    //if the current platform is not mobile, setting mouse handling 
 
+            if (wsadContorl)
+            {
+                Vector3 axis = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+               // transform.Translate(axis * Time.deltaTime*20);
+                transform.position = Vector3.MoveTowards(transform.position, transform.position + axis, 20 * Time.deltaTime);
+
+            }
+            else
             if (Input.GetMouseButton(0)) //if mouse button was pressed       
             {
                 Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition); //calculating mouse position in the worldspace

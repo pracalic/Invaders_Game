@@ -17,8 +17,8 @@ public class RepeatingBackground : MonoBehaviour
     MoveStrategy ms;
     private void Start()
     {
-        ms = transform.parent.GetComponent<DirectMoving>().GetMoveStrategy;
-        Debug.Log(ms);
+        ms = GameSet.instance.GetMoveStrategy;
+        // Debug.Log(ms);
     }
 
 

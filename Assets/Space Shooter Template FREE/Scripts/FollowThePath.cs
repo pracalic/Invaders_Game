@@ -27,7 +27,7 @@ public class FollowThePath : MonoBehaviour {
         }
         transform.position = NewPositionByPath(pathPositions, 0); //sending the enemy to the path starting point
         if (!rotationByPath)
-            transform.rotation = Quaternion.Euler(0, 0, GsmeSet.instance.GetStartEnemyRotation);// Quaternion.identity;
+            transform.rotation = Quaternion.Euler(0, 0, GameSet.instance.GetStartEnemyRotation);// Quaternion.identity;
         movingIsActive = true;
     }
 

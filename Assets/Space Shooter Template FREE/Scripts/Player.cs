@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 /// <summary>
 /// This script defines which sprite the 'Player" uses and its health.
 /// </summary>
 
 public class Player : Singleton<Player>
 {
+    public UnityEvent playerDeathEvent;
     public GameObject destructionFX;
 
     //public static Player instance; 
@@ -28,7 +29,9 @@ public class Player : Singleton<Player>
     void Destruction()
     {
         Instantiate(destructionFX, transform.position, Quaternion.identity); //generating destruction visual effect and destroying the 'Player' object
+        playerDeathEvent.Invoke();
         Destroy(gameObject);
+
     }
 }
 
