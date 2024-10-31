@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Template;
 
 /// <summary>
 /// This script generates an enemy wave. It defines how many enemies will be emerging, their speed and emerging interval. 
@@ -67,7 +68,7 @@ public class Wave : MonoBehaviour {
             followComponent.rotationByPath = rotationByPath;
             followComponent.loop = Loop;
             followComponent.SetPath(); 
-            Enemy enemyComponent = newEnemy.GetComponent<Enemy>();  
+            Template.Enemy enemyComponent = newEnemy.GetComponent<Template.Enemy>();  
             enemyComponent.shotChance = shooting.shotChance; 
             enemyComponent.shotTimeMin = shooting.shotTimeMin; 
             enemyComponent.shotTimeMax = shooting.shotTimeMax;

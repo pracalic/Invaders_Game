@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour {
         }
         else if (!enemyBullet && collision.tag == "Enemy")
         {
-            collision.GetComponent<Enemy>().GetDamage(damage);
+            collision.GetComponent<Template.Enemy>().GetDamage(damage);
             if (destroyedByCollision)
                 Destruction();
         }
